@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as icecc-builder
+FROM debian:bullseye as icecc-builder
 MAINTAINER Joseph Lee <joseph@jc-lab.net>
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -21,7 +21,7 @@ RUN cd /work/src && \
 RUN cd /work/src && \
     dpkg-buildpackage --no-sign -b
 
-FROM ubuntu:20.04
+FROM debian:bullseye
 MAINTAINER Joseph Lee <joseph@jc-lab.net>
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -31,8 +31,8 @@ RUN apt-get update -y && \
     ca-certificates bash curl netcat \
     build-essential git libarchive13 liblzo2-2 file libcap-ng0
 
-COPY --from=icecc-builder "/work/icecc_1.3.1-1_amd64.deb" "/tmp/icecc_1.3.1-1_amd64.deb"
-RUN dpkg -i /tmp/icecc_1.3.1-1_amd64.deb
+COPY --from=icecc-builder "/work/icecc_1.4.0_amd64.deb" "/tmp/icecc_1.4.0_amd64.deb"
+RUN dpkg -i /tmp/icecc_1.4.0_amd64.deb
 
 RUN apt-get autoclean && \
     rm -rf \
