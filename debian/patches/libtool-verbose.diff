@@ -1,0 +1,58 @@
+Author: Pino Toscano <pino@debian.org>
+Description: Do not make libtool silent
+ Make sure that the build is properly verbose, so it is possible to check for
+ build flags.
+Last-Update: 2022-03-04
+Forwarded: not-needed
+ 
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,7 +1,6 @@
+ EXTRA_DIST = README.md
+ 
+ ACLOCAL_AMFLAGS = -I m4
+-AM_LIBTOOLFLAGS = --silent
+ 
+ SUBDIRS = \
+ 	services \
+--- a/client/Makefile.am
++++ b/client/Makefile.am
+@@ -30,8 +30,6 @@ AM_CPPFLAGS = \
+ 
+ EXTRA_DIST = $(bin_SCRIPTS)
+ 
+-AM_LIBTOOLFLAGS = --silent
+-
+ install-exec-local:
+ 	$(mkinstalldirs) $(DESTDIR)$(bindir)
+ 	rm -f $(DESTDIR)$(bindir)/icerun
+--- a/daemon/Makefile.am
++++ b/daemon/Makefile.am
+@@ -17,8 +17,6 @@ iceccd_LDADD = \
+ AM_CPPFLAGS = \
+ 	-I$(top_srcdir)/services
+ 
+-AM_LIBTOOLFLAGS = --silent
+-
+ noinst_HEADERS = \
+ 	environment.h \
+ 	load.h \
+--- a/scheduler/Makefile.am
++++ b/scheduler/Makefile.am
+@@ -3,8 +3,6 @@ sbin_PROGRAMS = icecc-scheduler
+ icecc_scheduler_SOURCES = compileserver.cpp job.cpp jobstat.cpp scheduler.cpp
+ icecc_scheduler_LDADD = ../services/libicecc.la
+ 
+-AM_LIBTOOLFLAGS = --silent
+-
+ noinst_HEADERS = \
+     compileserver.h \
+     job.h \
+--- a/services/Makefile.am
++++ b/services/Makefile.am
+@@ -27,5 +27,3 @@ noinst_HEADERS = \
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = icecc.pc
+-
+-AM_LIBTOOLFLAGS = --silent

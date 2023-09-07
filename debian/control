@@ -6,15 +6,17 @@ Uploaders: Mark Purcell <msp@debian.org>,
  Pino Toscano <pino@debian.org>
 Build-Depends: debhelper-compat (= 12),
  docbook2x, docbook-xml,
+ pkg-config,
  libarchive-dev,
  liblzo2-dev,
  libzstd-dev,
  libcap-ng-dev [linux-any],
  libdevstat-dev [kfreebsd-any]
 Homepage: https://github.com/icecc/icecream
-Standards-Version: 4.5.0
+Standards-Version: 4.6.0
 Vcs-Git: https://salsa.debian.org/qt-kde-team/extras/icecc.git
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/extras/icecc
+Rules-Requires-Root: no
 
 Package: icecc
 Architecture: any

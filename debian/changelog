@@ -1,3 +1,27 @@
+icecc (1.4-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Fix day-of-week for changelog entries 0.7.3-4, 0.7.3-3, 0.7.3-2,
+    0.7.3-1.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Pino Toscano ]
+  * New upstream release.
+  * Bump watch file to v4, no changes required.
+  * Use execute_after_dh_auto_install to avoid invoking dh_auto_install
+    manually.
+  * Use /usr/share/dpkg/architecture.mk to get $DEB_HOST_MULTIARCH instead of
+    manually querying for it.
+  * Update the build dependencies according to the upstream build system:
+    - add pkg-config, now used to check for libraries
+  * Add Rules-Requires-Root: no.
+  * Make sure that libtool is verbose during the build; patch
+    libtool-verbose.diff.
+  * Bump Standards-Version to 4.6.0, no changes required.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 04 Mar 2022 23:10:22 +0100
+
 icecc (1.3.1-1) unstable; urgency=medium
 
   * New upstream release.
@@ -471,27 +495,27 @@ icecc (0.7.3-4) unstable; urgency=low
   * Also create a group icecc for the user icecc.
   * Build with -O2.
 
- -- Andre Woebbeking <Woebbeking@web.de>  Mon, 03 Jun 2006 23:50:12 +0200
+ -- Andre Woebbeking <Woebbeking@web.de>  Sat, 03 Jun 2006 23:50:12 +0200
 
 icecc (0.7.3-3) unstable; urgency=low
 
   * Create libicecc-dev package.
   * Simplified debian files.
 
- -- Andre Woebbeking <Woebbeking@web.de>  Sun, 02 Jun 2006 19:00:51 +0200
+ -- Andre Woebbeking <Woebbeking@web.de>  Fri, 02 Jun 2006 19:00:51 +0200
 
 icecc (0.7.3-2) unstable; urgency=low
 
   * Made icecc --build-native work.
 
- -- Andre Woebbeking <Woebbeking@web.de>  Sat, 01 Jun 2006 21:30:51 +0200
+ -- Andre Woebbeking <Woebbeking@web.de>  Thu, 01 Jun 2006 21:30:51 +0200
 
 icecc (0.7.3-1) unstable; urgency=low
 
   * New upstream version with new protocol (changed in 0.7.0).
   * /usr/bin/create-env is now /usr/lib/icecc/icecc-create-env
 
- -- Andre Woebbeking <Woebbeking@web.de>  Sat, 01 Jun 2006 20:36:15 +0200
+ -- Andre Woebbeking <Woebbeking@web.de>  Thu, 01 Jun 2006 20:36:15 +0200
 
 icecc (0.6.1-1) unstable; urgency=low
 
