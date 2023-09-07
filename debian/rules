@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+include /usr/share/dpkg/architecture.mk
 
 %:
 	dh $@
@@ -8,8 +8,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 override_dh_auto_configure:
 	dh_auto_configure -- --libexecdir='$${prefix}/lib' --enable-clang-wrappers
 
-override_dh_auto_install:
-	dh_auto_install
+execute_after_dh_auto_install:
 	# remove libtool file
 	rm -f debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libicecc.la
 

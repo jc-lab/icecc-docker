@@ -7,7 +7,7 @@ RUN apt-get update -y && \
     apt-get install -y \
     bash curl wget gnupg2 \
     debhelper build-essential git \
-    automake autoconf \
+    automake autoconf pkg-config \
     docbook2x docbook-xml libarchive-dev liblzo2-dev libzstd-dev libcap-ng-dev
 
 RUN mkdir -p /work
