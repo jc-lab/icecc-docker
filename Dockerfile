@@ -12,11 +12,11 @@ RUN apt-get update -y && \
 
 RUN mkdir -p /work
 
-COPY [ "icecc_1.3.1.orig.tar.gz", "/tmp/icecc_1.3.1.orig.tar.gz" ]
+COPY [ "icecc_1.4.0.orig.tar.gz", "/tmp/icecc_1.4.0.orig.tar.gz" ]
 COPY [ "debian", "/work/src/debian" ]
 
 RUN cd /work/src && \
-    tar --strip-components 1 -xf /tmp/icecc_1.3.1.orig.tar.gz
+    tar --strip-components 1 -xf /tmp/icecc_1.4.0.orig.tar.gz
 
 RUN cd /work/src && \
     dpkg-buildpackage --no-sign -b
